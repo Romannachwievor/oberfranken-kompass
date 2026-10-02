@@ -17,3 +17,4 @@ Danach `http://localhost:8000` öffnen. Für den kleinen Suchtest: `node search.
 Für echte Antworten braucht das Projekt freigegebene, datierte Inhalte aus Tourismus, Hochschulen, Wirtschaft und Kommunen. Erst dann kann eine KI Aussagen mit Quellen belegen und bei fehlenden Belegen „Ich weiß es nicht“ sagen. Das Zielbild mit redaktionell festgelegten und dynamischen Inhalten (30/70) ist noch keine technische Quote. Personalisierung, Akteursseiten, zeitbezogene Fragen und kulturelle Erklärungen für internationale Besucher folgen nach Festlegung von Datenrechten, Pflege und Datenschutz.
 
 Technische Bewertung, Gegenfragen und nächste Schritte stehen in [TECHNIK.md](TECHNIK.md).
+Designoptionen und konkrete Befunde zur Nutzung über Altersgruppen hinweg stehen in [ZUGAENGLICHKEIT.md](ZUGAENGLICHKEIT.md).
