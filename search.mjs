@@ -39,6 +39,7 @@ export const sources = [
 const stopWords = new Set('wo kann ich im in der die das den ein eine und zu für was ist wie finde über mit where can i the a an in for what is how do find to about'.split(' '));
 const normalize = text => text.toLowerCase().replaceAll('ß', 'ss').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
+// ponytail: keyword matching covers seven handpicked sources; use SQLite FTS5 when real questions show misses.
 export function findSources(question, topic = 'all') {
   const tokens = normalize(question).split(/[^a-z0-9]+/).filter(token => token.length > 2 && !stopWords.has(token));
   return sources
