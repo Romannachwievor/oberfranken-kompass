@@ -15,13 +15,13 @@
     :focus-visible { outline: 3px solid #d4593c; outline-offset: 3px; }
     .wrap { width: min(1100px, calc(100% - 40px)); margin-inline: auto; }
     header { border-bottom: 1px solid #d6ddd5; }
-    .top { min-height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .brand { font-size: 1.15rem; font-weight: 800; letter-spacing: -.04em; text-decoration: none; }
+    .top { min-height: 80px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; padding-block: 10px; }
+    .brand { min-width: 0; font-size: 1.15rem; font-weight: 800; letter-spacing: -.04em; overflow-wrap: anywhere; text-decoration: none; }
     .brand span { color: #b64d34; }
-    .language { border: 1px solid #a7b8b0; border-radius: 99px; background: transparent; padding: 8px 14px; color: #183a36; }
+    .language { min-height: 44px; border: 1px solid #587067; border-radius: 99px; background: transparent; padding: 8px 14px; color: #183a36; }
     .hero { padding: clamp(55px, 9vw, 115px) 0 62px; display: grid; grid-template-columns: 1.3fr .7fr; gap: 35px; align-items: end; }
     .eyebrow { color: #ad4a32; font-size: .78rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
-    h1 { max-width: 780px; margin: 16px 0 22px; font-size: clamp(3rem, 7vw, 6rem); line-height: .98; letter-spacing: -.075em; }
+    h1 { max-width: 780px; margin: 16px 0 22px; font-size: clamp(3rem, 7vw, 6rem); line-height: .98; letter-spacing: -.075em; overflow-wrap: anywhere; }
     .lead { max-width: 620px; color: #47635c; font-size: clamp(1.05rem, 2vw, 1.3rem); line-height: 1.5; }
     .note { padding: 24px; background: #dcece2; border-radius: 20px; transform: rotate(2deg); line-height: 1.5; }
     .note strong { display: block; margin-bottom: 8px; font-size: 1.15rem; }
@@ -31,21 +31,23 @@
     input { flex: 1; min-width: 0; padding: 17px 18px; border: 0; border-radius: 12px; background: #fff; color: #173c35; }
     .submit { border: 0; border-radius: 12px; padding: 0 25px; background: #e77450; color: #271d19; font-weight: 800; }
     .examples { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
-    .example { padding: 8px 12px; border: 1px solid #91aba3; border-radius: 99px; background: transparent; color: white; }
+    .example { max-width: 100%; min-height: 44px; padding: 8px 12px; border: 1px solid #91aba3; border-radius: 99px; background: transparent; color: white; overflow-wrap: anywhere; }
     main section.results-section { padding: 52px 0 90px; }
     .section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 15px; }
     h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -.05em; margin: 0 0 12px; }
     .section-head p { margin: 0; color: #587067; }
     .filters { display: flex; flex-wrap: wrap; gap: 9px; margin: 28px 0; }
-    .filter { border: 1px solid #b9c8be; border-radius: 99px; background: transparent; padding: 10px 16px; color: #183a36; }
+    .filter { min-height: 44px; border: 1px solid #587067; border-radius: 99px; background: transparent; padding: 10px 16px; color: #183a36; }
     .filter[aria-pressed="true"] { background: #183a36; border-color: #183a36; color: white; }
     .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-    .card { display: flex; flex-direction: column; min-height: 235px; padding: 24px; border: 1px solid #d9dfd6; border-radius: 18px; background: #fffdf8; }
+    .card { display: flex; flex-direction: column; min-width: 0; min-height: 235px; padding: 24px; border: 1px solid #d9dfd6; border-radius: 18px; background: #fffdf8; overflow-wrap: anywhere; }
     .card .tag { color: #a6432f; font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
     .card h3 { margin: 12px 0 8px; font-size: 1.35rem; letter-spacing: -.035em; }
     .card p { margin: 0 0 22px; color: #4c645c; line-height: 1.5; }
-    .card a { margin-top: auto; font-weight: 750; text-underline-offset: 3px; }
+    .card a { display: flex; align-items: center; min-height: 44px; margin-top: auto; font-weight: 750; text-underline-offset: 3px; }
     .empty { padding: 28px; border: 1px dashed #a9bcb1; border-radius: 18px; background: #fffdf8; }
+    .empty p { margin-top: 0; line-height: 1.5; }
+    .reset { min-height: 44px; padding: 10px 16px; border: 1px solid #183a36; border-radius: 10px; background: #183a36; color: white; }
     .freshness { margin-top: 24px; color: #526c61; line-height: 1.5; }
     footer { padding: 27px 0; border-top: 1px solid #d6ddd5; color: #587067; font-size: .9rem; }
     @media (max-width: 760px) {
@@ -57,7 +59,7 @@
       .wrap { width: min(100% - 28px, 1100px); }
       .search-row { flex-direction: column; }
       .submit { padding: 14px; }
-      .cards { grid-template-columns: 1fr; }
+      .cards { grid-template-columns: minmax(0, 1fr); }
       .section-head { display: block; }
     }
   </style>
@@ -66,7 +68,7 @@
   <header>
     <div class="wrap top">
       <a class="brand" href="#start">oberfranken<span>.</span>kompass</a>
-      <button class="language" id="language" type="button" aria-label="Switch to English">EN</button>
+      <button class="language" id="language" type="button" aria-label="EN – Switch to English">EN</button>
     </div>
   </header>
   <main id="start">
@@ -107,8 +109,8 @@
         questionLabel: 'Deine Frage', placeholder: 'Zum Beispiel: Wo kann ich im Frankenwald Rad fahren?', submit: 'Quellen finden',
         resultsTitle: 'Quellen entdecken', categories: { all: 'Alle', lernen: 'Studium', arbeiten: 'Arbeit', entdecken: 'Freizeit', leben: 'Leben & Kultur' },
         examples: ['Rad fahren im Frankenwald', 'Studieren in Bayreuth', 'Unternehmen in Oberfranken'],
-        count: n => `${n} ${n === 1 ? 'Quelle' : 'Quellen'}`, open: 'Quelle öffnen ↗',
-        empty: 'Dafür liegt noch keine Quelle vor. Bitte präziser fragen oder direkt bei einer regionalen Stelle nachsehen.',
+        count: n => `${n} ${n === 1 ? 'Quelle' : 'Quellen'}`, open: name => `${name} öffnen`,
+        empty: 'Zu dieser Frage haben wir noch keine Quelle. Du kannst alle Quellen ansehen oder ein anderes Thema wählen.', showAll: 'Alle Quellen anzeigen',
         freshness: 'Links am 02.10.2026 geprüft. Inhalte, Termine und Öffnungszeiten bitte direkt bei der Quelle prüfen.',
         footer: 'Offener Pilot für Oberfranken. Keine Anmeldung, kein Tracking.'
       },
@@ -119,9 +121,9 @@
         questionLabel: 'Your question', placeholder: 'For example: Where can I cycle in the Frankenwald?', submit: 'Find sources',
         resultsTitle: 'Explore sources', categories: { all: 'All', lernen: 'Study', arbeiten: 'Work', entdecken: 'Outdoors', leben: 'Life & culture' },
         examples: ['Cycling in Frankenwald', 'Study in Bayreuth', 'Businesses in Upper Franconia'],
-        count: n => `${n} ${n === 1 ? 'source' : 'sources'}`, open: 'Open source ↗',
-        empty: 'No source for this question yet. Try a more specific question or ask a regional organisation directly.',
-        freshness: 'Links checked on 2 October 2026. Check content, events and opening hours with each source.',
+        count: n => `${n} ${n === 1 ? 'source' : 'sources'}`, open: name => `Open ${name}`,
+        empty: 'We do not have a source for this question yet. Browse all sources or choose another topic.', showAll: 'Show all sources',
+        freshness: 'Links checked on 2 October 2026. Check content, events and opening hours with each source. External sites may be in German.',
         footer: 'Open pilot for Upper Franconia. No account or tracking.'
       }
     };
@@ -135,13 +137,17 @@
       for (const [id, key] of Object.entries({ eyebrow: 'eyebrow', headline: 'headline', lead: 'lead', 'note-title': 'noteTitle', 'note-body': 'noteBody', 'question-label': 'questionLabel', submit: 'submit', 'results-title': 'resultsTitle', freshness: 'freshness', footer: 'footer' })) $(id).textContent = t[key];
       $('question').placeholder = t.placeholder;
       $('language').textContent = language === 'de' ? 'EN' : 'DE';
-      $('language').setAttribute('aria-label', language === 'de' ? 'Switch to English' : 'Zu Deutsch wechseln');
+      $('language').setAttribute('aria-label', language === 'de' ? 'EN – Switch to English' : 'DE – Zu Deutsch wechseln');
       $('filters').setAttribute('aria-label', language === 'de' ? 'Themen' : 'Topics');
       $('filters').replaceChildren(...Object.entries(t.categories).map(([key, label]) => {
         const button = document.createElement('button');
         button.className = 'filter'; button.type = 'button'; button.textContent = label;
         button.setAttribute('aria-pressed', String(topic === key));
-        button.addEventListener('click', () => { topic = key; render(); });
+        button.addEventListener('click', () => {
+          topic = key;
+          for (const filter of $('filters').children) filter.setAttribute('aria-pressed', String(filter === button));
+          renderResults();
+        });
         return button;
       }));
       $('examples').replaceChildren(...t.examples.map(example => {
@@ -158,9 +164,13 @@
       const matches = findSources($('question').value, topic);
       $('count').textContent = t.count(matches.length);
       if (!matches.length) {
+        const empty = document.createElement('div'); empty.className = 'empty';
         const message = document.createElement('p');
-        message.className = 'empty'; message.textContent = t.empty;
-        $('results').replaceChildren(message);
+        message.textContent = t.empty;
+        const reset = document.createElement('button'); reset.className = 'reset'; reset.type = 'button'; reset.textContent = t.showAll;
+        reset.addEventListener('click', () => { $('question').value = ''; topic = 'all'; render(); $('results-title').focus(); });
+        empty.append(message, reset);
+        $('results').replaceChildren(empty);
         return;
       }
       $('results').replaceChildren(...matches.map(source => {
@@ -168,7 +178,7 @@
         const tag = document.createElement('span'); tag.className = 'tag'; tag.textContent = t.categories[source.topic];
         const title = document.createElement('h3'); title.textContent = source.title;
         const description = document.createElement('p'); description.textContent = source.description[language];
-        const link = document.createElement('a'); link.href = source.url; link.target = '_blank'; link.rel = 'noopener noreferrer'; link.textContent = t.open;
+        const link = document.createElement('a'); link.href = source.url; link.textContent = t.open(source.title);
         card.append(tag, title, description, link);
         return card;
       }));

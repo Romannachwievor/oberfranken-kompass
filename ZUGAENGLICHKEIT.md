@@ -18,7 +18,7 @@ Für Oberfranken empfehle ich einen **redaktionellen Explorer**: regionale Fotos
 
 Die Seite hat eine klare Überschrift, sichtbare Formularbeschriftung, Themenfilter, Tastatur-Fokusring und keine automatisch laufenden Inhalte. Gemessene Kontraste der kleineren Texte liegen bei 4,82:1 bis 6,29:1. Das ist eine gute Grundlage, aber keine Aussage über vollständige WCAG-Konformität. Für den Vergrößerungstest wurde Chromium auf 320 CSS-Pixel Breite gestellt und die Grundschrift auf 200 % gesetzt; das ist ein kombinierter Praxistest, kein einzelner WCAG-Grenzwert.
 
-| Priorität | Beobachtung | Änderung |
+| Priorität | Beobachtung vor der Korrektur | Maßnahme |
 | --- | --- | --- |
 | Hoch | Auf 320 px Breite wächst die Seite bei 200 % Grundschrift auf 486 px. Die große Überschrift erzwingt seitliches Scrollen. | Überschrift bei starker Vergrößerung umbrechen lassen; danach Schriftvergrößerung und Reflow einzeln prüfen. [WCAG 2.2, 1.4.4 und 1.4.10](https://www.w3.org/TR/WCAG22/). |
 | Hoch | Themenfilter werden nach Auswahl neu gebaut. Tastaturfokus fällt auf `body` zurück. | Filter im DOM behalten oder Fokus auf den gewählten Filter zurücksetzen. Tastaturfolge erneut prüfen. |
@@ -26,6 +26,8 @@ Die Seite hat eine klare Überschrift, sichtbare Formularbeschriftung, Themenfil
 | Mittel | Sprachknopf und Fragebeispiele sind 37 px, Filter 41 px hoch. | Für häufig genutzte Aktionen etwa 44 px Höhe anstreben. [WCAG 2.2](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html) verlangt mindestens 24 × 24 CSS-Pixel oder ausreichenden Abstand; 44 px ist hier ein Bedienziel. |
 | Mittel | Sieben Links heißen nur „Quelle öffnen“. In einer Linkliste fehlt das Ziel. | „Universität Bayreuth öffnen“ und entsprechende Namen anzeigen. |
 | Mittel | Bei fehlendem Treffer fordert die Seite eine präzisere Frage, obwohl auch Daten fehlen können. Englische Oberfläche führt zu meist deutschen Quellen. | Datenlücke offen benennen, passende Themen anbieten und Sprache der Zielseite anzeigen. |
+
+Die konkreten Oberflächenfehler sind im Pilot inzwischen korrigiert. Browsernachprüfung: Bei 320 px Breite und 200 % Grundschrift bleibt die Seite 320 px breit; Filter behalten den Fokus, häufige Schaltflächen sind mindestens 44 px hoch und Quellenlinks nennen ihr Ziel. Die englische Oberfläche weist nun auf mögliche deutschsprachige Zielseiten hin. Welche Sprache jede externe Seite tatsächlich anbietet, ist noch nicht erfasst.
 
 ## Bedienung und Inhalte
 
